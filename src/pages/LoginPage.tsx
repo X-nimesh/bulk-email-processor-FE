@@ -3,11 +3,12 @@ import {
     Heading,
     Input,
     Button,
+    Text,
 } from "@chakra-ui/react";
 import axios from "axios";
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 export const LoginPage = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ export const LoginPage = () => {
         });
         console.log(data);
         localStorage.setItem("token", data.data.access_token);
-        navigate("/dashboard");
+        navigate("/");
     }
     return (
         <Flex h="100vh" alignItems="center" justifyContent="center">
@@ -51,6 +52,13 @@ export const LoginPage = () => {
                 <Button colorScheme="teal" mb={8} onClick={(e) => onSubmitHandler(e)} >
                     Log In
                 </Button>
+                <Text>You don't have account.
+                    <Text as='span' color='blue' ml={1} >
+                        <NavLink to='/register' >
+                            Signup
+                        </NavLink>
+                    </Text>
+                </Text>
             </Flex>
         </Flex>
     );

@@ -6,10 +6,12 @@ import {
     FormLabel,
     FormErrorMessage,
     useToast,
+    Text,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 const RegistrationPage = () => {
     const toast = useToast();
@@ -100,6 +102,13 @@ const RegistrationPage = () => {
                     <Button type="submit" colorScheme="teal" mt={4}>
                         Register
                     </Button>
+                    <Text>You already have an account.
+                        <Text as='span' color='blue' ml={1} >
+                            <NavLink to='/login' >
+                                Login
+                            </NavLink>
+                        </Text>
+                    </Text>
                 </Flex>
             </form>
         </Flex>

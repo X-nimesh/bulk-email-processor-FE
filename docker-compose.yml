@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  production:
+    container_name: bulk_mail_fe_container
+    image: bulk_mail_fe
+    build: .
+    ports:
+      - "7070:80"
+    restart: unless-stopped

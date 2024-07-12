@@ -35,12 +35,24 @@ const HomePage = () => {
                 boxShadow="lg"
                 gap={'20px'}
             >
-                <Flex >
-                    <Button onClick={() => navigate('/bulk-mail')}>Bulk Mail</Button>
+                <Flex justifyContent={'space-between'}>
+                    <Flex direction={'column'} background={'#f9f9f9'} p={12}
+                        gap='20px'
+                        alignItems={'center'}
+                        borderRadius={8}
+                        boxShadow="lg">
+                        <Text fontWeight={'800'}>Total Email Sent</Text>
+                        <Text fontSize={'xl'} >{mailLogs?.length}</Text>
+                    </Flex>
+                    <Button p='30px 50px' background='#88B04B' color='white'
+                        _hover={{
+                            background: '#91d922',
+                        }}
+                        onClick={() => navigate('/bulk-mail-template-list')}>Send Bulk Mail</Button>
                 </Flex>
-                <Flex direction={'column'}>
-                    <Text fontSize={'3xl'}>Logs</Text>
-                    <TableContainer>
+                <Flex direction={'column'} alignItems={'center'} gap='50px'>
+                    <Text fontSize={'3xl'} fontWeight={'600'}>Bulk Email Logs</Text>
+                    <TableContainer w='100%'>
                         <Table variant='simple'>
                             <TableCaption>Logs of Bulk mail sent</TableCaption>
                             <Thead>
